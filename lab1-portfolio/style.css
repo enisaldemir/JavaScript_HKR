@@ -1,0 +1,248 @@
+/* General page CSS styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eedbdb;
+    color: #333333;
+    margin: 0;
+}
+
+header {
+    background-color: #2f4858;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    margin-bottom: 5px;
+}
+
+nav {
+    margin-top: 15px;
+}
+
+article {
+    background-color: #f8eeee;
+    border: 1px solid #f6b6b6;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+/* Navigation and links styling */
+nav a {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px 20px;
+    transition: color 0.5s;
+}
+
+nav a:hover {
+    color: #f6b6b6;
+}
+
+nav a:focus {
+    outline: 2px solid #f6b6b6;
+}
+
+main {
+    width: 80%;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+/* Main content */
+section {
+    background-color: whitesmoke;
+    border: 1px solid #f6b6b6;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #4f7a94;
+    border-bottom: 1px solid #f6b6b6;
+    padding-bottom: 5px;
+}
+
+img {
+    border: 1.5px solid #644242;
+    padding: 3px;
+}
+
+/* Images grouped & styled here rather than the HTML pages */
+.profile-image {
+    width: 250px;
+    max-width: 100%;
+    height: auto;
+}
+
+.trip-image {
+    width: 400px;
+    max-width: 100%;
+    height: auto;
+}
+
+.pet-image {
+    width: 350px;
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    margin-left: 0;
+}
+
+figcaption {
+    font-style: italic;
+    font-size: smaller;
+    margin-top: 3px;
+}
+
+/* Forms styling */
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+form input {
+    display: block;
+    width: 60%;
+    max-width: 500px;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+form textarea {
+    display: block;
+    width: 60%;
+    max-width: 500px;
+    height: 100px;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+input[type="submit"] {
+    width: auto;
+    margin-top: 15px;
+    background-color: #644242;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    transition: background-color 0.5s;
+}
+
+input[type="submit"]:hover {
+    background-color: #2f4858;
+}
+
+input[type="submit"]:focus {
+    outline: 2px solid #4f7a94;
+    background-color: #2f4858;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: 2px solid #4f7a94;
+}
+
+/* Footer section styling */
+footer {
+    background-color: #2f4858;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+footer a:hover {
+    color: #f6b6b6;
+}
+
+footer a:focus {
+    outline: 2px solid #f6b6b6;
+}
+
+
+
+/* Tablet layout */
+@media (max-width: 900px) {
+
+    main {
+        width: 90%;
+    }
+
+    .trip-image {
+        width: 350px;
+    }
+
+    .pet-image {
+        width: 300px;
+    }
+
+    form input {
+        width: 75%;
+    }
+
+    form textarea {
+        width: 75%;
+    }
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+
+    header {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    main {
+        width: 92%;
+    }
+
+    section {
+        padding: 10px;
+    }
+
+    .profile-image {
+        width: 200px;
+    }
+
+    .trip-image {
+        width: 100%;
+    }
+
+    .pet-image {
+        width: 100%;
+    }
+
+    form input {
+        width: 90%;
+    }
+
+    form textarea {
+        width: 90%;
+    }
+}
