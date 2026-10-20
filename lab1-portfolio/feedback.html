@@ -7,13 +7,14 @@
     <title>Feedback - My Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="feedback.css">
+    <script src="feedback.js" defer></script>
 </head>
 
 <body>
     <h1>Feedback</h1>
     <p>Please share your feedback about my portfolio.</p>
 
-    <form id="feedbackForm">
+    <form id="feedbackForm" novalidate>
         <div>
             <label for="fullName">Full Name:</label>
             <input type="text" id="fullName" name="fullName" minlength="2" aria-describedby="fullNameError" required>
