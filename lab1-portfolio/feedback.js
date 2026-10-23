@@ -36,39 +36,41 @@ function validateFullName() {
     const hasLetter = /\p{L}/u.test(name);
 
     if (name.length < 2 || !namePattern.test(name) || !hasLetter) {
-        fullNameError.textContent = "Enter at least 2 characters using letters, spaces, apostrophes or hyphens.";
-        fullName.classList.add("is-error");
-        fullName.classList.remove("is-valid");
-        fullName.setAttribute("aria-invalid", "true");
+        showFieldError(fullName, fullNameError,
+            "Enter at least 2 characters using letters, spaces, apostrophes or hyphens.");
         return false;
     }
 
-    fullNameError.textContent = "";
-    fullName.classList.remove("is-error");
-    fullName.classList.add("is-valid");
-    fullName.removeAttribute("aria-invalid");
-
+    clearFieldError(fullName, fullNameError);
     return true;
+}
+
+function clearFieldError(field, errorElement) {
+    errorElement.textContent = "";
+    field.classList.remove("is-error");
+    field.classList.add("is-valid");
+    field.removeAttribute("aria-invalid");
+}
+
+function showFieldError(field, errorElement, message) {
+    errorElement.textContent = message;
+    field.classList.add("is-error");
+    field.classList.remove("is-valid");
+    field.setAttribute("aria-invalid", "true");
 }
 
 function validateEmail() {
     const emailValue = email.value.trim();
 
     if (emailValue === "" ||
-    email.validity.typeMismatch ||
-    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
-        emailError.textContent = "Please enter a valid email address.";
-        email.classList.add("is-error");
-        email.classList.remove("is-valid");
-        email.setAttribute("aria-invalid", "true");
+        email.validity.typeMismatch ||
+        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+
+        showFieldError(email, emailError, "Please enter a valid email address.");
         return false;
     }
 
-    emailError.textContent = "";
-    email.classList.remove("is-error");
-    email.classList.add("is-valid");
-    email.removeAttribute("aria-invalid");
-
+    clearFieldError(email, emailError);
     return true;
 }
 
