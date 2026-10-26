@@ -14,6 +14,8 @@ const topicError = document.getElementById("topicError");
 const commentsError = document.getElementById("commentsError");
 const websiteError = document.getElementById("websiteError");
 
+const charCounter = document.getElementById("charCounter");
+
 feedbackForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -139,3 +141,20 @@ function validateWebsite() {
     return true;
 }
 
+function updateCharCounter() {
+    const count = comments.value.length;
+    const validLength = comments.value.trim().length >= 15;
+
+    charCounter.textContent = count + " characters (minimum 15 required)";
+
+    if (validLength) {
+        charCounter.classList.add("counter-valid");
+        charCounter.classList.remove("counter-error");
+    } else {
+        charCounter.classList.add("counter-error");
+        charCounter.classList.remove("counter-valid");
+    }
+}
+
+comments.addEventListener("input", updateCharCounter);
+updateCharCounter();
