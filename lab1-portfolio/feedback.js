@@ -17,8 +17,15 @@ const websiteError = document.getElementById("websiteError");
 
 const charCounter = document.getElementById("charCounter");
 
+let successTimeout;
+
+// Handle form submission
 feedbackForm.addEventListener("submit", function (event) {
     event.preventDefault();
+
+    // Cancel any previous success message timeout
+    clearTimeout(successTimeout);
+    formStatus.textContent = "";
 
     const nameValid = validateFullName();
     const emailValid = validateEmail();
@@ -28,11 +35,39 @@ feedbackForm.addEventListener("submit", function (event) {
 
     if (nameValid && emailValid && topicValid && commentsValid && websiteValid) {
         formStatus.textContent = "Thanks for your feedback, " + fullName.value.trim() + "!";
+
         resetForm();
-    } else {
-        formStatus.textContent = "";
+
+        successTimeout = setTimeout(function () {
+            formStatus.textContent = "";
+        }, 4000);
     }
 });
+
+// Handle the Clear button
+feedbackForm.addEventListener("reset", function (event) {
+    event.preventDefault();
+
+    clearTimeout(successTimeout);
+    formStatus.textContent = "";
+    resetForm();
+});
+
+// Show an error on a field
+function showFieldError(field, errorElement, message) {
+    errorElement.textContent = message;
+    field.classList.add("is-error");
+    field.classList.remove("is-valid");
+    field.setAttribute("aria-invalid", "true");
+}
+
+// Clear an error and mark the field as valid
+function clearFieldError(field, errorElement) {
+    errorElement.textContent = "";
+    field.classList.remove("is-error");
+    field.classList.add("is-valid");
+    field.removeAttribute("aria-invalid");
+}
 
 function validateFullName() {
     const name = fullName.value.trim();
@@ -42,8 +77,11 @@ function validateFullName() {
     const hasLetter = /\p{L}/u.test(name);
 
     if (name.length < 2 || !namePattern.test(name) || !hasLetter) {
-        showFieldError(fullName, fullNameError,
-            "Enter at least 2 characters using letters, spaces, apostrophes or hyphens.");
+        showFieldError(
+            fullName,
+            fullNameError,
+            "Enter at least 2 characters using letters, spaces, apostrophes or hyphens.",
+        );
         return false;
     }
 
@@ -51,27 +89,14 @@ function validateFullName() {
     return true;
 }
 
-function clearFieldError(field, errorElement) {
-    errorElement.textContent = "";
-    field.classList.remove("is-error");
-    field.classList.add("is-valid");
-    field.removeAttribute("aria-invalid");
-}
-
-function showFieldError(field, errorElement, message) {
-    errorElement.textContent = message;
-    field.classList.add("is-error");
-    field.classList.remove("is-valid");
-    field.setAttribute("aria-invalid", "true");
-}
-
 function validateEmail() {
     const emailValue = email.value.trim();
 
-    if (emailValue === "" ||
+    if (
+        emailValue === "" ||
         email.validity.typeMismatch ||
-        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
-
+        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)
+    ) {
         showFieldError(email, emailError, "Please enter a valid email address.");
         return false;
     }
@@ -82,18 +107,11 @@ function validateEmail() {
 
 function validateTopic() {
     if (topic.value === "") {
-        topicError.textContent = "Please select a topic.";
-        topic.classList.add("is-error");
-        topic.classList.remove("is-valid");
-        topic.setAttribute("aria-invalid", "true");
+        showFieldError(topic, topicError, "Please select a topic.");
         return false;
     }
 
-    topicError.textContent = "";
-    topic.classList.remove("is-error");
-    topic.classList.add("is-valid");
-    topic.removeAttribute("aria-invalid");
-
+    clearFieldError(topic, topicError);
     return true;
 }
 
@@ -101,47 +119,35 @@ function validateComments() {
     const commentText = comments.value.trim();
 
     if (commentText.length < 15) {
-        commentsError.textContent = "Please enter at least 15 characters.";
-        comments.classList.add("is-error");
-        comments.classList.remove("is-valid");
-        comments.setAttribute("aria-invalid", "true");
+        showFieldError(comments, commentsError, "Please enter at least 15 characters.");
         return false;
     }
 
-    commentsError.textContent = "";
-    comments.classList.remove("is-error");
-    comments.classList.add("is-valid");
-    comments.removeAttribute("aria-invalid");
-
+    clearFieldError(comments, commentsError);
     return true;
 }
 
 function validateWebsite() {
     const websiteValue = website.value.trim();
 
-    // Website is optional
+    // An empty website is allowed
     if (websiteValue === "") {
         websiteError.textContent = "";
-        website.classList.remove("is-error");
-        website.classList.remove("is-valid");
+        website.classList.remove("is-error", "is-valid");
         website.removeAttribute("aria-invalid");
         return true;
     }
 
-    // Check URL format using browser validation
     if (website.validity.typeMismatch) {
-        websiteError.textContent = "Please enter a valid URL, for example https://example.com.";
-        website.classList.add("is-error");
-        website.classList.remove("is-valid");
-        website.setAttribute("aria-invalid", "true");
+        showFieldError(
+            website,
+            websiteError,
+            "Please enter a valid URL, for example https://example.com.",
+        );
         return false;
     }
 
-    websiteError.textContent = "";
-    website.classList.remove("is-error");
-    website.classList.add("is-valid");
-    website.removeAttribute("aria-invalid");
-
+    clearFieldError(website, websiteError);
     return true;
 }
 
