@@ -6,6 +6,7 @@ const email = document.getElementById("email");
 const topic = document.getElementById("topic");
 const comments = document.getElementById("comments");
 const website = document.getElementById("website");
+const formStatus = document.getElementById("formStatus");
 
 // Get the error message elements
 const fullNameError = document.getElementById("fullNameError");
@@ -26,7 +27,10 @@ feedbackForm.addEventListener("submit", function (event) {
     const websiteValid = validateWebsite();
 
     if (nameValid && emailValid && topicValid && commentsValid && websiteValid) {
-        console.log("All fields are valid");
+        formStatus.textContent = "Thanks for your feedback, " + fullName.value.trim() + "!";
+        resetForm();
+    } else {
+        formStatus.textContent = "";
     }
 });
 
@@ -139,6 +143,24 @@ function validateWebsite() {
     website.removeAttribute("aria-invalid");
 
     return true;
+}
+
+function resetForm() {
+    feedbackForm.reset();
+
+    const fields = [fullName, email, topic, comments, website];
+    const errorElements = [fullNameError, emailError, topicError, commentsError, websiteError];
+
+    fields.forEach(function (field) {
+        field.classList.remove("is-error", "is-valid");
+        field.removeAttribute("aria-invalid");
+    });
+
+    errorElements.forEach(function (errorElement) {
+        errorElement.textContent = "";
+    });
+
+    updateCharCounter();
 }
 
 function updateCharCounter() {
