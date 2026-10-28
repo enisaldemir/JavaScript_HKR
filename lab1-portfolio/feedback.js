@@ -7,6 +7,7 @@ const topic = document.getElementById("topic");
 const comments = document.getElementById("comments");
 const website = document.getElementById("website");
 const formStatus = document.getElementById("formStatus");
+const clearButton = document.getElementById("clearButton");
 
 // Get the error message elements
 const fullNameError = document.getElementById("fullNameError");
@@ -45,9 +46,7 @@ feedbackForm.addEventListener("submit", function (event) {
 });
 
 // Handle the Clear button
-feedbackForm.addEventListener("reset", function (event) {
-    event.preventDefault();
-
+clearButton.addEventListener("click", function () {
     clearTimeout(successTimeout);
     formStatus.textContent = "";
     resetForm();

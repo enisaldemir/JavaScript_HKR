@@ -1,16 +1,9 @@
 /* Feedback form layout */
-main {
-    width: 80%;
-    max-width: 1000px;
-    margin: 20px auto;
-}
-
 #feedbackForm {
-    background-color: #f8eeee;
-    border: 1px solid #f6b6b6;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 650px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
 }
 
 #feedbackForm>div {
@@ -55,7 +48,7 @@ main {
     color: white;
 }
 
-#feedbackForm button[type="reset"] {
+#feedbackForm #clearButton {
     background-color: white;
     color: #2f4858;
 }
