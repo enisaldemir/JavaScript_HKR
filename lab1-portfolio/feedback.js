@@ -52,6 +52,36 @@ clearButton.addEventListener("click", function () {
     resetForm();
 });
 
+fullName.addEventListener("input", function () {
+    if (fullName.hasAttribute("aria-invalid")) {
+        validateFullName();
+    }
+});
+
+email.addEventListener("input", function () {
+    if (email.hasAttribute("aria-invalid")) {
+        validateEmail();
+    }
+});
+
+topic.addEventListener("change", function () {
+    if (topic.hasAttribute("aria-invalid")) {
+        validateTopic();
+    }
+});
+
+comments.addEventListener("input", function () {
+    if (comments.hasAttribute("aria-invalid")) {
+        validateComments();
+    }
+});
+
+website.addEventListener("input", function () {
+    if (website.hasAttribute("aria-invalid")) {
+        validateWebsite();
+    }
+});
+
 // Show an error on a field
 function showFieldError(field, errorElement, message) {
     errorElement.textContent = message;
