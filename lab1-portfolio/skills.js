@@ -77,3 +77,39 @@ const skills = [
         description: "I am learning JavaScript to add interactive features to web pages."
     }
 ];
+
+const skillsContainer = document.getElementById("skillsContainer");
+
+function renderSkills() {
+    skillsContainer.innerHTML = "";
+
+    skills.forEach(function (skill) {
+        const card = document.createElement("div");
+        card.classList.add("skill-card");
+
+        const title = document.createElement("h3");
+        title.textContent = skill.name;
+
+        const category = document.createElement("p");
+        category.textContent = "Category: " + skill.category;
+
+        const proficiency = document.createElement("p");
+        proficiency.textContent = "Proficiency: " + skill.proficiency + "/5";
+
+        const experience = document.createElement("p");
+        experience.textContent = "Experience: " + skill.yearsExperience + " years";
+
+        const description = document.createElement("p");
+        description.textContent = skill.description;
+
+        card.appendChild(title);
+        card.appendChild(category);
+        card.appendChild(proficiency);
+        card.appendChild(experience);
+        card.appendChild(description);
+
+        skillsContainer.appendChild(card);
+    });
+}
+
+renderSkills();
