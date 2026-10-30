@@ -80,8 +80,10 @@ const skills = [
 
 const skillsContainer = document.getElementById("skillsContainer");
 const filterButtons = document.querySelectorAll("#skillFilters button");
-let selectedCategory = "All";
 const skillSort = document.getElementById("skillSort");
+const skillsCount = document.getElementById("skillsCount");
+
+let selectedCategory = "All";
 let selectedSort = "proficiency";
 
 function renderSkills(skillsToShow) {
@@ -132,6 +134,9 @@ function updateSkills() {
     const sortedSkills = sortSkills(filteredSkills);
 
     renderSkills(sortedSkills);
+
+    skillsCount.textContent =
+        "Showing " + sortedSkills.length + " of " + skills.length + " skills";
 }
 
 function sortSkills(skillsToSort) {

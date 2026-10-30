@@ -318,3 +318,9 @@ footer a:focus {
     outline: 3px solid #4f7a94;
     outline-offset: 2px;
 }
+
+#skillsCount {
+    color: #2f4858;
+    font-size: 14px;
+    margin: 15px 0;
+}
