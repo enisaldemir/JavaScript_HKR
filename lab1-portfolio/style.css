@@ -297,3 +297,24 @@ footer a:focus {
     outline: 3px solid #4f7a94;
     outline-offset: 2px;
 }
+
+#skillSortControls {
+    margin: 15px 0;
+}
+
+#skillSortControls label {
+    margin-right: 10px;
+}
+
+#skillSort {
+    padding: 8px;
+    border: 1px solid #2f4858;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
+}
+
+#skillSort:focus-visible {
+    outline: 3px solid #4f7a94;
+    outline-offset: 2px;
+}

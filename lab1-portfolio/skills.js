@@ -81,6 +81,8 @@ const skills = [
 const skillsContainer = document.getElementById("skillsContainer");
 const filterButtons = document.querySelectorAll("#skillFilters button");
 let selectedCategory = "All";
+const skillSort = document.getElementById("skillSort");
+let selectedSort = "proficiency";
 
 function renderSkills(skillsToShow) {
     skillsContainer.innerHTML = "";
@@ -116,16 +118,40 @@ function renderSkills(skillsToShow) {
 
 renderSkills(skills);
 
-function filterSkills() {
+function updateSkills() {
+    let filteredSkills;
+
     if (selectedCategory === "All") {
-        renderSkills(skills);
+        filteredSkills = skills;
     } else {
-        const filteredSkills = skills.filter(function (skill) {
+        filteredSkills = skills.filter(function (skill) {
             return skill.category === selectedCategory;
         });
-
-        renderSkills(filteredSkills);
     }
+
+    const sortedSkills = sortSkills(filteredSkills);
+
+    renderSkills(sortedSkills);
+}
+
+function sortSkills(skillsToSort) {
+    const sortedSkills = [...skillsToSort];
+
+    if (selectedSort === "proficiency") {
+        sortedSkills.sort(function (a, b) {
+            return b.proficiency - a.proficiency;
+        });
+    } else if (selectedSort === "experience") {
+        sortedSkills.sort(function (a, b) {
+            return b.yearsExperience - a.yearsExperience;
+        });
+    } else if (selectedSort === "name") {
+        sortedSkills.sort(function (a, b) {
+            return a.name.localeCompare(b.name);
+        });
+    }
+
+    return sortedSkills;
 }
 
 filterButtons.forEach(function (button) {
@@ -138,6 +164,13 @@ filterButtons.forEach(function (button) {
 
         button.setAttribute("aria-pressed", "true");
 
-        filterSkills();
+        updateSkills();
     });
 });
+
+skillSort.addEventListener("change", function () {
+    selectedSort = skillSort.value;
+    updateSkills();
+});
+
+
