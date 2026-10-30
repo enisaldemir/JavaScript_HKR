@@ -79,11 +79,13 @@ const skills = [
 ];
 
 const skillsContainer = document.getElementById("skillsContainer");
+const filterButtons = document.querySelectorAll("#skillFilters button");
+let selectedCategory = "All";
 
-function renderSkills() {
+function renderSkills(skillsToShow) {
     skillsContainer.innerHTML = "";
 
-    skills.forEach(function (skill) {
+    skillsToShow.forEach(function (skill) {
         const card = document.createElement("div");
         card.classList.add("skill-card");
 
@@ -112,4 +114,30 @@ function renderSkills() {
     });
 }
 
-renderSkills();
+renderSkills(skills);
+
+function filterSkills() {
+    if (selectedCategory === "All") {
+        renderSkills(skills);
+    } else {
+        const filteredSkills = skills.filter(function (skill) {
+            return skill.category === selectedCategory;
+        });
+
+        renderSkills(filteredSkills);
+    }
+}
+
+filterButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+        selectedCategory = button.dataset.category;
+
+        filterButtons.forEach(function (filterButton) {
+            filterButton.setAttribute("aria-pressed", "false");
+        });
+
+        button.setAttribute("aria-pressed", "true");
+
+        filterSkills();
+    });
+});

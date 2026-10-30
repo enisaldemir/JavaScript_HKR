@@ -270,3 +270,30 @@ footer a:focus {
 .skill-card p {
     margin: 8px 0;
 }
+
+/* Filter buttons styling*/
+#skillFilters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+#skillFilters button {
+    padding: 8px 12px;
+    background-color: white;
+    color: #2f4858;
+    border: 1px solid #2f4858;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#skillFilters button[aria-pressed="true"] {
+    background-color: #2f4858;
+    color: white;
+}
+
+#skillFilters button:focus-visible {
+    outline: 3px solid #4f7a94;
+    outline-offset: 2px;
+}
