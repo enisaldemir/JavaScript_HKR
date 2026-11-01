@@ -84,7 +84,7 @@ I used regular JavaScript without any frameworks.
 ## How to Run
 
 1. Clone or download the repository.
-2. Open the `lab1-portfolio` folder.
+2. Open the `portfolio-website` folder.
 3. Open `index.html` in a web browser.
 4. Use the navigation menu to visit the other pages.
 5. Open the Feedback page to test the form.
@@ -100,7 +100,7 @@ During Lab 2, I practiced JavaScript concepts such as arrays, objects, functions
 
 I also found and fixed some problems during development. For example, I had an issue with loading the JavaScript file twice, which caused errors. Another issue was related to duplicated CSS rules that made the Feedback page look different from the other pages.
 
-The original Lab 1 development notes are available in `lab1-portfolio/development-documentation.md`.
+The original Lab 1 development notes are available in `portfolio-website/development-documentation.md`.
 
 ## Testing
 
