@@ -43,7 +43,7 @@ For the skills section, I tested the filtering, sorting and results counter. I a
 
 I used Chrome and Safari during development and checked keyboard navigation for the interactive controls.
 
-I recorded my testing results in `lab2-test-report.md` and saved screenshots showing different stages of the development in `build-log-screenshits/lab2-screenshots` folder.
+I recorded my testing results in `lab2-test-report.md` and saved screenshots showing different stages of the development in `build-log-lab2/lab2-screenshots` folder.
 
 ## 5. What I Learned
 
