@@ -1,0 +1,94 @@
+/* Feedback form layout */
+#feedbackForm {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+}
+
+#feedbackForm>div {
+    margin-bottom: 15px;
+}
+
+/* Form fields */
+#feedbackForm input,
+#feedbackForm textarea,
+#feedbackForm select {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    border: 1px solid #777777;
+    border-radius: 4px;
+    background-color: white;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+/* Keyboard and mouse focus */
+#feedbackForm input:focus,
+#feedbackForm textarea:focus,
+#feedbackForm select:focus {
+    outline: 2px solid #2f4858;
+    outline-offset: 2px;
+}
+
+/* Submit and Clear buttons */
+#feedbackForm button {
+    padding: 10px 20px;
+    margin: 5px 10px 5px 0;
+    border: 1px solid #2f4858;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#feedbackForm button[type="submit"] {
+    background-color: #2f4858;
+    color: white;
+}
+
+#feedbackForm #clearButton {
+    background-color: white;
+    color: #2f4858;
+}
+
+#feedbackForm button:hover {
+    background-color: #644242;
+    color: white;
+}
+
+#feedbackForm button:focus-visible {
+    outline: 3px solid #4f7a94;
+    outline-offset: 3px;
+}
+
+/* Validation messages */
+#feedbackForm .error-message {
+    color: #a02020;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Validation states */
+#feedbackForm .is-error {
+    border: 2px solid #a02020;
+}
+
+#feedbackForm .is-valid {
+    border: 2px solid #287a42;
+}
+
+/* Character counter */
+#charCounter {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+#charCounter.counter-error {
+    color: #a02020;
+}
+
+#charCounter.counter-valid {
+    color: #287a42;
+}

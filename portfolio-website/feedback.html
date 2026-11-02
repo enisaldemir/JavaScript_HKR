@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="feedback.css">
+    <script src="feedback.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Feedback</h1>
+        <p>Please share your feedback about my portfolio.</p>
+
+        <nav>
+            <a href="index.html">About Me</a>
+            <a href="trips.html">My Trips</a>
+            <a href="pet.html">My Pet</a>
+            <a href="feedback.html">Feedback</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <form id="feedbackForm" novalidate>
+                <div>
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" name="fullName" minlength="2" aria-describedby="fullNameError"
+                        required>
+                    <p id="fullNameError" class="error-message"></p>
+                </div>
+
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" aria-describedby="emailError" required>
+                    <p id="emailError" class="error-message"></p>
+                </div>
+
+                <div>
+                    <label for="topic">Topic of Interest:</label>
+                    <select id="topic" name="topic" aria-describedby="topicError" required>
+                        <option value="" disabled selected>Select a topic</option>
+                        <option value="programming">Programming</option>
+                        <option value="testing">Software Testing</option>
+                        <option value="web">Web Development</option>
+                    </select>
+                    <p id="topicError" class="error-message"></p>
+                </div>
+
+                <div>
+                    <label for="comments">Comments:</label>
+                    <textarea id="comments" name="comments" required minlength="15"
+                        aria-describedby="charCounter commentsError"></textarea>
+                    <p id="charCounter">0 characters (minimum 15 required)</p>
+                    <p id="commentsError" class="error-message"></p>
+                </div>
+
+                <div>
+                    <label for="website">Website (optional):</label>
+                    <input type="url" id="website" name="website" aria-describedby="websiteError">
+                    <p id="websiteError" class="error-message"></p>
+                </div>
+
+                <div>
+                    <button type="submit">Submit</button>
+                    <button type="button" id="clearButton">Clear</button>
+                    <p id="formStatus" role="status" aria-live="polite"></p>
+                </div>
+            </form>
+        </section>
+    </main>
+
+</body>
+
+</html>
