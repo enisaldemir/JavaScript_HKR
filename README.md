@@ -2,6 +2,8 @@
 
 ## Project Description
 
+### Github Link: `https://github.com/enisaldemir/JavaScript_HKR`
+
 This repository contains my portfolio website for the JavaScript for Web Development course at Kristianstad University.
 
 Assignment: https://hkr.instructure.com/courses/9445/assignments/112924
