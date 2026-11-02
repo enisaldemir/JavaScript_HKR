@@ -6,7 +6,7 @@ const skills = [
         category: "Programming",
         proficiency: 3,
         yearsExperience: 2,
-        description: "I have used Java in programming courses mostly for test automation."
+        description: "I have used Java in programming courses mostly for test automation.",
     },
     {
         id: 2,
@@ -14,7 +14,7 @@ const skills = [
         category: "Programming",
         proficiency: 2,
         yearsExperience: 1,
-        description: "I studied C# to improve my programming skills."
+        description: "I studied C# to improve my programming skills.",
     },
     {
         id: 3,
@@ -22,7 +22,7 @@ const skills = [
         category: "Programming",
         proficiency: 2,
         yearsExperience: 1,
-        description: "I studied Pythonto improve my programming skills."
+        description: "I studied Pythonto improve my programming skills.",
     },
 
     // Software Testing
@@ -32,7 +32,8 @@ const skills = [
         category: "Software Testing",
         proficiency: 5,
         yearsExperience: 6,
-        description: "I use manual testing to verify software functionality and investigate issues."
+        description:
+            "I use manual testing to verify software functionality and investigate issues.",
     },
     {
         id: 5,
@@ -40,7 +41,7 @@ const skills = [
         category: "Software Testing",
         proficiency: 3,
         yearsExperience: 2,
-        description: "I write automated test cases and maintain our test automation framework."
+        description: "I write automated test cases and maintain our test automation framework.",
     },
     {
         id: 6,
@@ -48,7 +49,8 @@ const skills = [
         category: "Software Testing",
         proficiency: 3,
         yearsExperience: 1,
-        description: "Now I am developing a mobile test framework to support our web test framefork."
+        description:
+            "Now I am developing a mobile test framework to support our web test framefork.",
     },
 
     // Web Development
@@ -58,7 +60,7 @@ const skills = [
         category: "Web Development",
         proficiency: 2,
         yearsExperience: 1,
-        description: "I use HTML to structure web pages and forms."
+        description: "I use HTML to structure web pages and forms.",
     },
     {
         id: 8,
@@ -66,7 +68,7 @@ const skills = [
         category: "Web Development",
         proficiency: 2,
         yearsExperience: 1,
-        description: "I use CSS to style responsive web pages."
+        description: "I use CSS to style responsive web pages.",
     },
     {
         id: 9,
@@ -74,8 +76,8 @@ const skills = [
         category: "Web Development",
         proficiency: 2,
         yearsExperience: 1,
-        description: "I am learning JavaScript to add interactive features to web pages."
-    }
+        description: "I am learning JavaScript to add interactive features to web pages.",
+    },
 ];
 
 const skillsContainer = document.getElementById("skillsContainer");
@@ -118,8 +120,6 @@ function renderSkills(skillsToShow) {
     });
 }
 
-renderSkills(skills);
-
 function updateSkills() {
     let filteredSkills;
 
@@ -135,8 +135,7 @@ function updateSkills() {
 
     renderSkills(sortedSkills);
 
-    skillsCount.textContent =
-        "Showing " + sortedSkills.length + " of " + skills.length + " skills";
+    skillsCount.textContent = "Showing " + sortedSkills.length + " of " + skills.length + " skills";
 }
 
 function sortSkills(skillsToSort) {
@@ -178,4 +177,5 @@ skillSort.addEventListener("change", function () {
     updateSkills();
 });
 
-
+// Display skills with the default sorting when the page loads
+updateSkills();

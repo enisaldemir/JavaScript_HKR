@@ -102,7 +102,7 @@ During Lab 2, I practiced JavaScript concepts such as arrays, objects, functions
 
 I also found and fixed some problems during development. For example, I had an issue with loading the JavaScript file twice, which caused errors. Another issue was related to duplicated CSS rules that made the Feedback page look different from the other pages.
 
-The original Lab 1 development notes are available in `portfolio-website/build-log-lab1/development-documentation.md`.
+The original Lab 1 development notes are available in `portfolio-website/build-log-lab1/lab1-development-documentation.md`.
 
 ## Testing
 
