@@ -147,8 +147,8 @@ function validateTopic() {
 function validateComments() {
     const commentText = comments.value.trim();
 
-    if (commentText.length < 15) {
-        showFieldError(comments, commentsError, "Please enter at least 15 characters.");
+    if (commentText.length < 15 || commentText.length >= 50) {
+        showFieldError(comments, commentsError, "Please enter your comment at least 15 and at most 50 characters.");
         return false;
     }
 
@@ -200,7 +200,7 @@ function resetForm() {
 
 function updateCharCounter() {
     const count = comments.value.length;
-    const validLength = comments.value.trim().length >= 15;
+    const validLength = comments.value.trim().length >= 15 && comments.value.trim().length <= 50;
 
     charCounter.textContent = count + " characters (minimum 15 required)";
 
